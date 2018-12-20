@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>水印添加系统 - {% block page_name %}Home{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/lib/dropzone.min.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <div id="footer" class="fixed-bottom">
+        {% block footer %}
+        &copy; Copyright 2017 by <a href="https://github.com/anjingcuc/learn_flask_the_hard_way">AnJing</a>.
+        {% endblock %}
+    </div>
+</div>
+
+</body>
+
+<script src="/static/js/lib/jquery-3.2.1.slim.min.js"></script>
+<script src="/static/js/lib/popper.min.js"></script>
+<script src="/static/js/lib/bootstrap.min.js"></script>
+
+<script src="/static/js/lib/dropzone.min.js"></script>
+<script src="/static/js/common.js"></script>
+</html>

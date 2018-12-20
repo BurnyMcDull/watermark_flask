@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block page_name %}Watermark{% endblock %}
+
+{% block content %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul class=flashes>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+<h1>视频水印添加系统</h1>
+<li class="active">
+    <a href="{{ url_for('watermark') }}">
+        <span>图像水印</span>
+    </a>
+</li>
+
+<li>
+    <a href="{{ url_for('watermark1') }}">
+        <span>音频水印</span>
+    </a>
+</li>
+<Legend>Upload file to watermark:</Legend>
+
+<form action="/video_upload" id="upload" class="dropzone"></form>
+
+<form action="/watermark2" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        {{ form.watermark.label }}
+        {{ form.watermark(class_="form-control") }}
+    </div>
+
+    <p>{{ form.csrf_token }}</p>
+
+    <input class="btn btn-primary" style="float:left"type="submit" value="Submit">
+</form>
+<form action="/getjpg" method="get" >
+
+    <input class="btn btn-primary" style="float:right" type="submit" value="下载">
+</form>
+<br \>
+<br \>
+<a href="{{ url_for('signoff') }}"  onclick="{if(confirm('确定登出吗?')){this.document.formname.submit();return true;}return false;}">Sign Off</a>
+
+
+{% endblock %}
